@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Overruled Ascendence Project Page">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+    <title>Overruled Ascendence - Project</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Josh Elder</div>
+            <ul class="nav-links">
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#about">About Me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="project-detail">
+            <h1>Overruled Ascendence</h1>
+            <p class="project-description">
+                The story follows a lone miner who starts hiding extra materials to upgrade his ship, hoping to escape the corporation with his small, caring family.
+            </p>
+            <p>
+                In his mid 50s he has a family which consists of his Father, Adopted Daughter and Tortoise. His name is never revealed although is named LIBER-07 by the corporation. His job as a corporate miner, He receives barely enough to supply for his family and is constantly in danger thanks to his job. 
+            </p>
+            <p>
+                He will work extremely hard mining, surviving to feed his family. However, he has a plan to escape; he will illegally upgrade his vessel to break through and escape from the evil corp. Ultimately, the story will be about how you, a lone miner, starts stashing away extra materials to upgrade your vessel to escape the evil corporation with your small but loving family. 
+            </p>
+            <p>
+                The world they live in: 
+            </p>
+            <p>
+                In a Cyberpunk metropolis, A Corporation has monopolized all resources and industries, and is controlling every part of life within the city. Underneath the city is a large amount of caverns where miners, deployed by the corporation, slave away to gather resources which only benefits the corporation and not those inside of the city. The corporation promises the resources are going towards the “Betterment of humankind” the real purpose is uncontested overruling of the whole planet. 
+            </p>
+            <p>
+                The caverns below the city are not just used for gathering minerals and resources but also are called home to many mutated creatures created by the toxic conditions of the underworld. They defend their territory and make it difficult for the miners, they are extremely dangerous and are exploited by the corporation. 
+            </p>
+            <!--
+            <div class="trailer-container">
+                <h2>Watch the Trailer</h2>
+                <div class="video-wrapper">
+                    <video controls>
+                        <source src="videos/AAA.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            -->
+
+            <div class="download-section">
+                <p>
+                    No Current Downloads
+                </p>
+                <!--
+                <a href="https://spooky-josh.itch.io/=" class="btn">Download Overruled Ascendence</a>
+                -->
+            </div>
+            
+            <div class="code-buttons">
+                <button class="open-code-btn" data-file="code/Overruled-Ascendence-Movement.cs" onclick="openCodePopup(this)">View Ship Movement Code</button>
+                <button class="open-code-btn" data-file="code/Overruled-Ascendence-MineSpawner.cs" onclick="openCodePopup(this)">View Mine Spawner Code</button>
+            </div>
+            <!-- Code Pop-Up Container -->
+            <div id="codePopup" class="code-popup">
+                <div class="code-popup-content">
+                    <span class="close-btn" onclick="closeCodePopup()">&times;</span>
+                    <pre><code id="codeContainer" class="language-csharp"></code></pre>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Josh Elder. All rights reserved.</p>
+    </footer>
+    <script>
+        function openCodePopup() {
+            document.getElementById("codePopup").style.display = "block";
+        }
+    
+        function closeCodePopup() {
+            document.getElementById("codePopup").style.display = "none";
+        }
+    
+        // Close the pop-up if the user clicks outside the content
+        window.onclick = function(event) {
+            if (event.target === document.getElementById("codePopup")) {
+                closeCodePopup();
+            }
+        }
+
+        // Function to open the code popup and load the file
+        function openCodePopup(button) {
+        const filePath = button.getAttribute('data-file');
+        const codeContainer = document.getElementById('codeContainer');
+        const codePopup = document.getElementById('codePopup');
+
+        // Fetch the content of the file
+        fetch(filePath)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok: ' + response.statusText);
+                }
+                return response.text();
+            })
+            .then(code => {
+                // Insert the code into the container and highlight it
+                codeContainer.textContent = code;
+                Prism.highlightAll();
+                codePopup.style.display = 'block';
+            })
+            .catch(error => {
+                codeContainer.textContent = 'Error loading file: ' + error.message;
+                codePopup.style.display = 'block';
+            });
+        }
+        // Function to close the code popup
+        function closeCodePopup() {
+            document.getElementById('codePopup').style.display = 'none';
+            document.getElementById('codeContainer').textContent = '';
+        }
+
+        // Close the pop-up if the user clicks outside the content
+        window.onclick = function(event) {
+        if (event.target === document.getElementById('codePopup')) {
+            closeCodePopup();
+        }
+    };
+    </script>
+</body>
+</html>

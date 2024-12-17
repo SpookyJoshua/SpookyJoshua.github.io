@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aria's Canvas Project Page">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+    <title>Aria's Canvas - Project</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Josh Elder</div>
+            <ul class="nav-links">
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#about">About Me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="project-detail">
+            <h1>Aria's Canvas</h1>
+            <p class="project-description">
+                Aria's Canvas is an innovative gameplay experience focused on artistic mechanics and exploration. Dive into a world where creativity drives progress, and every stroke of your brush shapes the environment.
+            </p>
+            <img src="screenshots/AriaCanvas1.png" alt="Greyscale Image of Aria with The Shadow">
+
+            <h2>The Game</h2>
+            <p>
+                The game follows a character struggling with anxiety and depression, moving through a dark, gloomy world. They collect power-ups representing mental health coping strategies such as exercise, problem solving, or humour, gradually making the world brighter and smoother.
+            </p>
+            <p>
+                Enemies represent mental health challenges, and puzzles require creative thinking. The goal is to overcome challenges and build emotional resilience to reach the end. The game has an uplifting story and visual arc to show perseverance and seek help for mental health. The game uses a dark, lo-fi soundtrack to feature within it, and has a stylized art style.
+            </p>
+            <img src="screenshots/AriaCanvas2.png" alt="Greyscale Image of Aria at the begining">
+
+            <h2>Characters</h2>
+            
+            <h3>Main Character: Aria</h3>
+            <p>
+                Once a vibrant artist, Aria's world dimmed with the onset of anxiety and depression. Her canvas has remained blank for months. Aria has a monochrome palette, with hints of color that start to weave into her clothing as she collects power-ups. Her posture and expressions evolve from slouched and downcast to upright and determined. Aria has the unique ability to see 'cracks' in the gloomy world where she can paint streaks of light, revealing hidden paths and solutions. Throughout the game, Aria learns to harness different coping strategies, which not only aid her journey but also manifest as vibrant tattoos on her arms, symbolizing her growth and emotional resilience.
+            </p>
+            
+            <h3>Enemy: The Shadow</h3>
+            <p>
+                The Shadow is an embodiment of Aria's inner doubts and fears, always lurking behind her. A shape-shifter made of dark mist, with red eyes that are the only color on it. It takes on forms that mirror Aria's deepest insecurities. It sends out waves of darkness to overwhelm Aria, representing panic attacks or depressive episodes that she must fend off with her coping strategies.
+            </p>
+            
+            <h3>Enemy: The Echo</h3>
+            <p>
+                The Echo is the voice of past failures and negative self-talk that haunts Aria. An ethereal figure that mirrors Aria's movements but is fractured as if seen in a broken mirror. It repeats Aria's movements but in a distorted way, creating puzzles that Aria must solve by breaking the pattern and asserting her own path.
+            </p>
+
+            <img src="screenshots/AriaCanvas3.png" alt="Color Image of Aria after picking up one of the power-ups">
+            <h2>Story</h2>
+            <p>
+                Delving Deeper is a section of the game that follows Aria, surrounded by a monochrome world. The game's environment is initially a monochrome landscape reflecting Aria's inner turmoil. As they navigate, they discover power-ups like the Brush of Bravery and the Palette of Positivity, which offer coping mechanisms. As they collect these power-ups, the world regains color, and Aria's appearance transforms, indicating a growing sense of confidence and control.
+            </p>
+            <p>
+                Aria faces two main adversaries: The Shadow, a manifestation of their darkest thoughts, and The Echo, a spectral figure that distorts Aria's reality. Each encounter strengthens Aria's resolve, and their tattoos represent the strategies they've mastered and the obstacles they've overcome.
+            </p>
+            <p>
+                The game ends with a final confrontation where Aria must use all their coping strategies to vanquish The Shadow and silence The Echo, liberating themselves from their anxiety and depression. In the end, Aria stands in a world reawakened with color, a testament to their journey, the importance of seeking support, and the triumph of overcoming mental health challenges. Their story serves as a beacon of hope, reminding players that even in the darkest moments, there is a path to joy and illumination.
+            </p>
+            <img src="screenshots/AriaCanvas4.png" alt="Color Image of the lockpicking puzzle">
+
+
+            <div class="trailer-container">
+                <h2>Watch the Trailer</h2>
+                <div class="video-wrapper">
+                    <video controls>
+                        <source src="videos/Aria's Canvas Announcement Trailer.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            
+            <div class="download-section">
+                <a href="https://spooky-josh.itch.io/arias-canvas" class="btn">Download Aria's Canvas</a>
+            </div>
+            
+            <div class="code-buttons">
+                <button class="open-code-btn" data-file="code/Aria-Canvas-Plr-Move.cs" onclick="openCodePopup(this)">View Player Movement Code</button>
+                <button class="open-code-btn" data-file="code/Aria-Canvas-Post-Processing-Color.cs" onclick="openCodePopup(this)">View Post Processing Code</button>
+                <button class="open-code-btn" data-file="code/Aria-Canvas-Power-Ups.cs" onclick="openCodePopup(this)">View Power Ups Code</button>
+                <button class="open-code-btn" data-file="code/Aria-Canvas-Chest-System.cs" onclick="openCodePopup(this)">View Chest Code</button>
+            </div>
+            <!-- Code Pop-Up Container -->
+            <div id="codePopup" class="code-popup">
+                <div class="code-popup-content">
+                    <span class="close-btn" onclick="closeCodePopup()">&times;</span>
+                    <pre><code id="codeContainer" class="language-csharp"></code></pre>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Josh Elder. All rights reserved.</p>
+    </footer>
+    <script>
+        function openCodePopup() {
+            document.getElementById("codePopup").style.display = "block";
+        }
+    
+        function closeCodePopup() {
+            document.getElementById("codePopup").style.display = "none";
+        }
+    
+        // Close the pop-up if the user clicks outside the content
+        window.onclick = function(event) {
+            if (event.target === document.getElementById("codePopup")) {
+                closeCodePopup();
+            }
+        }
+
+        // Function to open the code popup and load the file
+        function openCodePopup(button) {
+        const filePath = button.getAttribute('data-file');
+        const codeContainer = document.getElementById('codeContainer');
+        const codePopup = document.getElementById('codePopup');
+
+        // Fetch the content of the file
+        fetch(filePath)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok: ' + response.statusText);
+                }
+                return response.text();
+            })
+            .then(code => {
+                // Insert the code into the container and highlight it
+                codeContainer.textContent = code;
+                Prism.highlightAll();
+                codePopup.style.display = 'block';
+            })
+            .catch(error => {
+                codeContainer.textContent = 'Error loading file: ' + error.message;
+                codePopup.style.display = 'block';
+            });
+        }
+        // Function to close the code popup
+        function closeCodePopup() {
+            document.getElementById('codePopup').style.display = 'none';
+            document.getElementById('codeContainer').textContent = '';
+        }
+
+        // Close the pop-up if the user clicks outside the content
+        window.onclick = function(event) {
+        if (event.target === document.getElementById('codePopup')) {
+            closeCodePopup();
+        }
+    };
+    </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Saving System Asset Page">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+    <title>Saving System - Unity Asset</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Josh Elder</div>
+            <ul class="nav-links">
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#about">About Me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="project-detail">
+            <h1>Saving System</h1>
+            <img src="screenshots/save-logo.png" alt="Logo of Saving System">
+            <p class="project-description">
+                This saving system is capable of saving any game object within Unity. It can store not only the object's position and rotation but also its scale and other essential attributes if needed. This allows for a more comprehensive preservation of the object's state, ensuring that when the game is reloaded, everything returns to its exact previous configuration. The system is flexible and can be customized to save additional data, such as custom properties, scripts attached to the object, and even dynamic changes made during gameplay. This makes it a robust solution for creating checkpoints, save states, or restoring complex scenes with ease.  
+            </p>
+            <img src="screenshots/save-1.png" alt="Image of Editor View">
+            <!--
+            <div class="trailer-container">
+                <h2>Watch the Trailer</h2>
+                <div class="video-wrapper">
+                    <video controls>
+                        <source src="videos/AAA.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            -->
+
+            <div class="download-section">
+                <a href="https://assetstore.unity.com/packages/tools/level-design/saving-system-219851" class="btn">Purchase Saving System (Asset Store)</a>
+                <a href="https://spooky-josh.itch.io/saving-system" class="btn">Purchase Saving System (Itch)</a>
+            </div>
+            
+            <div class="code-buttons">
+                <button class="open-code-btn" data-file="code/ver1SaveSystem" onclick="openCodePopup(this)">View Saving System V1 Code</button>
+            </div>
+            <!-- Code Pop-Up Container -->
+            <div id="codePopup" class="code-popup">
+                <div class="code-popup-content">
+                    <span class="close-btn" onclick="closeCodePopup()">&times;</span>
+                    <pre><code id="codeContainer" class="language-csharp"></code></pre>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Josh Elder. All rights reserved.</p>
+    </footer>
+    <script>
+        function openCodePopup() {
+            document.getElementById("codePopup").style.display = "block";
+        }
+    
+        function closeCodePopup() {
+            document.getElementById("codePopup").style.display = "none";
+        }
+    
+        // Close the pop-up if the user clicks outside the content
+        window.onclick = function(event) {
+            if (event.target === document.getElementById("codePopup")) {
+                closeCodePopup();
+            }
+        }
+
+        // Function to open the code popup and load the file
+        function openCodePopup(button) {
+        const filePath = button.getAttribute('data-file');
+        const codeContainer = document.getElementById('codeContainer');
+        const codePopup = document.getElementById('codePopup');
+
+        // Fetch the content of the file
+        fetch(filePath)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok: ' + response.statusText);
+                }
+                return response.text();
+            })
+            .then(code => {
+                // Insert the code into the container and highlight it
+                codeContainer.textContent = code;
+                Prism.highlightAll();
+                codePopup.style.display = 'block';
+            })
+            .catch(error => {
+                codeContainer.textContent = 'Error loading file: ' + error.message;
+                codePopup.style.display = 'block';
+            });
+        }
+        // Function to close the code popup
+        function closeCodePopup() {
+            document.getElementById('codePopup').style.display = 'none';
+            document.getElementById('codeContainer').textContent = '';
+        }
+
+        // Close the pop-up if the user clicks outside the content
+        window.onclick = function(event) {
+        if (event.target === document.getElementById('codePopup')) {
+            closeCodePopup();
+        }
+    };
+    </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Whack A Monster Project Page">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+    <title>Whack A Monster - Project</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Josh Elder</div>
+            <ul class="nav-links">
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#about">About Me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="project-detail">
+            <h1>Whack A Monster</h1>
+            <p class="project-description">
+                Step right up to Whack A Monster, the thrilling, fast-paced twist on the classic whack-a-mole game! In this adrenaline-charged experience, your task is to smash a swarm of grotesque, mischievous monsters back into the depths before they wreak havoc. Armed with your trusty mallet and razor-sharp reflexes, you'll face an escalating challenge as these fiendish creatures pop up with increasing speed and trickery.            
+            </p>
+            <p>
+                Set in a nightmarish carnival, the game plunges you into eerie arenas filled with flickering lights, fog-choked grounds, and the distant sound of sinister laughter. From haunted graveyards to creepy funhouses, each level introduces a new setting that tests your speed, accuracy, and nerves. The detailed environments pulse with atmosphere, immersing you in a world where danger lurks just below the surface — literally!
+            </p>
+            <p>
+                In Whack A Monster, you'll encounter a bizarre variety of creatures, including sneaky goblins, glowing-eyed zombies, wicked jack-o'-lanterns, and shadowy imps. Each monster type has its own devious movement pattern: some spring up and vanish in a blink, others taunt you by bobbing and weaving, and the rare Golden Gremlin offers a huge point boost if you’re fast enough to catch it. Beware of tricky monsters that deploy decoys or emit blinding flashes to throw off your aim!
+            </p>
+            <p>
+                As the levels progress, the monsters appear faster and in greater numbers, demanding split-second decisions and lightning reflexes. To even the odds, collect powerful upgrades like the Hammer of Lightning, which stuns all monsters briefly, or the Mallet of Mayhem, which lets you crush multiple monsters in one mighty swing. But use them wisely — the monsters adapt and evolve, ensuring no two rounds are ever the same.
+            </p>
+            <p>
+                Customize your mallet with fun, spooky designs, and unlock new arenas filled with haunting visuals and chilling soundscapes. Earn achievements, track your high scores, and challenge your friends to see who can survive the monster onslaught the longest. The spine-tingling soundtrack, filled with creepy carnival melodies and pulse-pounding beats, keeps your adrenaline pumping with every swing.
+            </p>
+            <p>
+                Whack A Monster is the ultimate test of reflexes, strategy, and nerves of steel. Whether you're looking for a quick session of frantic fun or aiming to dominate the leaderboards, this monstrous mash-up delivers non-stop excitement.
+            </p>
+            <p>
+                Ready your mallet, brace yourself, and remember: smash or be spooked!
+            </p>
+
+            <!--
+            <div class="trailer-container">
+                <h2>Watch the Trailer</h2>
+                <div class="video-wrapper">
+                    <video controls>
+                        <source src="videos/AAA.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            -->
+
+            <div class="download-section">
+                <a href="https://spooky-josh.itch.io/whack-a-monster" class="btn">Download Whack A Monster</a>
+            </div>
+            
+            <div class="code-buttons">
+                <button class="open-code-btn" data-file="code/Whack-A-Monster-Generator.cs" onclick="openCodePopup(this)">View Monster Generator Code</button>
+                <button class="open-code-btn" data-file="code/Whack-A-Monster-Difficulty.cs" onclick="openCodePopup(this)">View Difficulty System Code</button>
+                <button class="open-code-btn" data-file="code/Whack-A-Monster-Score.cs" onclick="openCodePopup(this)">View Score System Code</button>
+            </div>
+            <!-- Code Pop-Up Container -->
+            <div id="codePopup" class="code-popup">
+                <div class="code-popup-content">
+                    <span class="close-btn" onclick="closeCodePopup()">&times;</span>
+                    <pre><code id="codeContainer" class="language-csharp"></code></pre>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Josh Elder. All rights reserved.</p>
+    </footer>
+    <script>
+        function openCodePopup() {
+            document.getElementById("codePopup").style.display = "block";
+        }
+    
+        function closeCodePopup() {
+            document.getElementById("codePopup").style.display = "none";
+        }
+    
+        // Close the pop-up if the user clicks outside the content
+        window.onclick = function(event) {
+            if (event.target === document.getElementById("codePopup")) {
+                closeCodePopup();
+            }
+        }
+
+        // Function to open the code popup and load the file
+        function openCodePopup(button) {
+        const filePath = button.getAttribute('data-file');
+        const codeContainer = document.getElementById('codeContainer');
+        const codePopup = document.getElementById('codePopup');
+
+        // Fetch the content of the file
+        fetch(filePath)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok: ' + response.statusText);
+                }
+                return response.text();
+            })
+            .then(code => {
+                // Insert the code into the container and highlight it
+                codeContainer.textContent = code;
+                Prism.highlightAll();
+                codePopup.style.display = 'block';
+            })
+            .catch(error => {
+                codeContainer.textContent = 'Error loading file: ' + error.message;
+                codePopup.style.display = 'block';
+            });
+        }
+        // Function to close the code popup
+        function closeCodePopup() {
+            document.getElementById('codePopup').style.display = 'none';
+            document.getElementById('codeContainer').textContent = '';
+        }
+
+        // Close the pop-up if the user clicks outside the content
+        window.onclick = function(event) {
+        if (event.target === document.getElementById('codePopup')) {
+            closeCodePopup();
+        }
+    };
+    </script>
+</body>
+</html>
